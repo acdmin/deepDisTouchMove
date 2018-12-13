@@ -10,8 +10,10 @@ const disTouchMove = function(option){
     this._init(this.element, this.direction)
 }
 disTouchMove.prototype = {
+    constructor: disTouchMove,
     _init: function(element) {
         let _ele = document.querySelectorAll(element)
+        if(!_ele.length)return
         if(_ele.length){
             _ele.forEach( t => {
                 this._disTouchMove(t)
@@ -19,8 +21,6 @@ disTouchMove.prototype = {
                     this.dElement(t)
                 }
             })
-        }else{
-            this._disTouchMove(_ele)
         }
     },
     dElement: function(element){
